@@ -15,8 +15,9 @@ namespace AutomationFramework
         {
             Config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             string browser = Config["browser"];
-            Driver = DriverFactory.createDriver(browser);
+            Driver = DriverFactory.createDriver(browser, Config["headless_mode"]);
             Driver.Manage().Window.Maximize();
+
         }
 
         [TearDown]
