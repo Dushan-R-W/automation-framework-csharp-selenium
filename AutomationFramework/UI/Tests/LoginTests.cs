@@ -20,15 +20,9 @@ namespace AutomationFramework.UI.Tests
             loginPage.EnterUsername("tomsmith");
             loginPage.EnterPassword("SuperSecretPassword!");
             loginPage.ClickLogin();
-
             string message = loginPage.GetSuccessMessage();
 
             Assert.That(message, Does.Contain("You logged into a secure area!"));
         }
-
-
-
-
-
     }
 }

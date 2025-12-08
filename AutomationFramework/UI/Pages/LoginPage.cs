@@ -7,24 +7,15 @@ using System.Threading.Tasks;
 
 namespace AutomationFramework.UI.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        private readonly IWebDriver _driver;
 
         //constructor
-        public LoginPage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
+        public LoginPage(IWebDriver driver) : base(driver) { }
 
-        private IWebElement UsernameInput => _driver.FindElement(By.Id("username"));
-        private IWebElement PasswordInput => _driver.FindElement(By.Id("password"));
-        private IWebElement loginButton => _driver.FindElement(By.CssSelector("button[type='submit']"));
-        private IWebElement SuccessMessage => _driver.FindElement(By.CssSelector("div.flash.success"));
-
-        public void EnterUsername(string username) => UsernameInput.SendKeys(username);
-        public void EnterPassword(string password) => PasswordInput.SendKeys(password);
-        public void ClickLogin() => loginButton.Click();
-        public string GetSuccessMessage() => SuccessMessage.Text;
+        public void EnterUsername(string username) => Type(By.Id("username"), username);
+        public void EnterPassword(string password) => Type(By.Id("password"), password);
+        public void ClickLogin() => Click(By.CssSelector("button[type='submit']"));
+        public string GetSuccessMessage() => GetText(By.CssSelector("div.flash.success"));
     }
 }
