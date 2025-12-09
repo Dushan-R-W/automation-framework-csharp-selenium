@@ -18,6 +18,5 @@ public static class DriverFactory
         {
             return new ChromeDriver();
         }
-
     }
 }

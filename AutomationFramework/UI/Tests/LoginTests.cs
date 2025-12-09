@@ -1,15 +1,10 @@
-﻿using AutomationFramework.UI.Pages;
+﻿using AutomationFramework.Drivers;
+using AutomationFramework.UI.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutomationFramework.UI.Tests
 {
-    public class LoginTests : TestBase
+    public class LoginTests : WebDriverSetup
     {
         [Test]
         public void Login_Valid()

@@ -2,11 +2,10 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace AutomationFramework
+namespace AutomationFramework.Drivers
 {
-    public class TestBase
+    public class WebDriverSetup
     {
-
         protected IWebDriver Driver;      //IWebDriver is the main Selenium interface that controls the browser.
         protected IConfiguration Config;
 
@@ -17,7 +16,6 @@ namespace AutomationFramework
             string browser = Config["browser"];
             Driver = DriverFactory.createDriver(browser, Config["headless_mode"]);
             Driver.Manage().Window.Maximize();
-
         }
 
         [TearDown]
